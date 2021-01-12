@@ -1,0 +1,42 @@
+package com.techlab.FileReader;
+
+import java.io.*;
+import com.techlab.FileReader.account.Account;
+public class FileReader1 {
+
+	public static void main(String[] args) throws Exception {
+
+		Account a = new Account(12, "abc", 34);
+		printInfo(a);
+		storingIntoFile(a);
+		restoringFileInfo(a);
+	}
+
+	private static void restoringFileInfo(Account a) throws Exception, IOException, ClassNotFoundException {
+		ObjectInputStream oin = new ObjectInputStream(new FileInputStream(
+				"C:\\\\Classwork\\\\Serialization-demo-app\\\\src\\\\com\\\\techlab\\\\FileReader\\\\Sample.txt"));
+		a = (Account) oin.readObject();
+		System.out.println(a.toString());
+		oin.close();
+
+	}
+
+	private static void storingIntoFile(Account a) throws IOException {
+		try {
+			FileOutputStream fout = new FileOutputStream(
+					"C:\\Classwork\\Serialization-demo-app\\src\\com\\techlab\\FileReader\\Sample.txt");
+			ObjectOutputStream oout = new ObjectOutputStream(fout);
+			oout.writeObject(a);
+			oout.flush();
+			oout.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private static void printInfo(Account a) {
+		System.out.println(a.toString());
+	}
+
+}

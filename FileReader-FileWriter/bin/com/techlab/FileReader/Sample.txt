@@ -1,0 +1,3 @@
+Student name  is dipak and roll no is 1 and marks it has 40
+Student name  is ravi and roll no is 2 and marks it has 50
+Student name  is mahesh and roll no is 5 and marks it has 90

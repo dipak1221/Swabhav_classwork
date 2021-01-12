@@ -1,0 +1,11 @@
+package com.techlab.library;
+
+public class LibraryTest {
+
+	public static void main(String[] args) {
+		Book[] b=new Book[3];
+		b[0]=new Book("abc,"sam");
+
+	}
+
+}

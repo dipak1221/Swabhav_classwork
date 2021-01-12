@@ -1,0 +1,35 @@
+package com.techlab.FileReader;
+
+import java.io.*;
+
+import com.techlab.FileReader.account.Account;
+
+public class FileReader1 {
+
+	public static void main(String[] args) {
+		
+		Account a=new Account(12,"abc",34);
+		printInfo(a);
+		storingIntoFile(a);
+	}
+
+	private static void storingIntoFile(Account a) {
+		try {
+			FileOutputStream fout=new FileOutputStream("C:\\Classwork\\Serialization-demo-app\\src\\com\\techlab\\FileReader\\Sample.txt");
+		
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	private static void printInfo(Account a) {
+	System.out.println(a.toString());	
+	}
+	
+	
+	
+	
+
+}

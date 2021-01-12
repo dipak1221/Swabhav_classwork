@@ -1,0 +1,84 @@
+package com.techlab.project2;
+
+import java.sql.*;
+
+public class Contact extends JDBCConnection {
+	private int rows = 0;
+	private String line = "";
+
+	public Contact() throws Exception {
+		super();
+	}
+
+	public String display() throws SQLException {
+		try {
+			line = "";
+			stmt = connection.createStatement();
+			res = stmt.executeQuery("select * from Contact");
+
+			while (res.next()) {
+				line += "Fname = " + res.getString("fname") + ", Lname = " + res.getString("lname") + ", Phone no = "
+						+ res.getString("phoneno") + ", Emailid = " + res.getString("emailid") + "\n";
+			}
+			return line;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public int add(String fname, String lname, String phoneno, String email) throws SQLException {
+		try {
+			line = "insert into Contact value" + "('" + fname + "','" + lname + "','" + phoneno + "','" + email + "')";
+			rows = stmt.executeUpdate(line);
+			return rows;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public int delete(String fname, String lname) throws SQLException {
+		try {
+			line = "delete from Contact where fname='" + fname + "' and lname='" + lname + "'";
+			rows = stmt.executeUpdate(line);
+			return rows;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+
+	}
+
+	public int show(String fname, String lname, String phoneno) {
+		try {
+			line = "Select * from Contact where fname='" + fname + "' and lname='" + lname + "' and phoneno='" + phoneno
+					+ "'";
+			rows = stmt.executeUpdate(line);
+			return rows;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+
+	}
+
+	public int update(String fname, String lname, String phoneno, String newphoneno) {
+		try {
+//			update Contact set phoneno='123456789' where fname='dwayne' and lname='johnson' and phoneno='123';
+			line = "update Contact set='" + newphoneno + "' where fname='" + fname + "' and lname='" + lname
+					+ "' and phoneno='" + phoneno + "'";
+			rows = stmt.executeUpdate(line);
+			return rows;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 0;
+
+	}
+
+	public void closeConnection() throws SQLException {
+		connection.close();
+	}
+}

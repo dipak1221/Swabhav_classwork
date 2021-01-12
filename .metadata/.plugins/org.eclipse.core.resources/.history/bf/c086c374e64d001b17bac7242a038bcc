@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+public class ArrayListTest {
+
+	public static void main(String[] args) {
+		ArrayList a=new ArrayList();
+		
+		a.add(12);
+		a.add("hello");
+		a.add(23.45);
+		for(int i=0;i<a.size();i++)
+			System.out.println(a.get(i));
+		
+	}
+
+}

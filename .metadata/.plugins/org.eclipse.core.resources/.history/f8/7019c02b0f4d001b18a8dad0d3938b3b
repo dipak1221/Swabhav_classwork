@@ -1,0 +1,19 @@
+package com.techlab.FileReader;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileWriter1 {
+
+	public static void main(String[] args) {
+		try {
+			FileWriter fs=new FileWriter("");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

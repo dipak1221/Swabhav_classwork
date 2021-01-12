@@ -1,0 +1,16 @@
+package com.techlab.FileReader;
+
+import java.io.*;
+
+import com.techlab.FileReader.account.Account;
+
+public class FileReader1 {
+
+	public static void main(String[] args) {
+		
+		Account a=new Account(12,"abc",34);
+		
+
+	}
+
+}

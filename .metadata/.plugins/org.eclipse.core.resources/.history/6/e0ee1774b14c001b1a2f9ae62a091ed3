@@ -1,0 +1,16 @@
+package com.techlab.student.comparator.test;
+
+import java.util.ArrayList;
+
+import com.techlab.student.comparator.Student;
+
+public class StudentTest {
+
+	public static void main(String[] args) {
+		ArrayList<Student>a=new ArrayList<Student>();
+		a.add(new Student(101,"abc","lastname1"));
+		a.add(new Student(102,"abc2","lastname2"));
+
+	}
+
+}

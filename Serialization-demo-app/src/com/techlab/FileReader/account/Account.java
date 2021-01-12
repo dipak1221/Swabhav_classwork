@@ -1,0 +1,30 @@
+package com.techlab.FileReader.account;
+
+import java.io.Serializable;
+
+public class Account implements Serializable{
+	private int id;
+	private String name;
+	private double amt;
+	public Account(int id, String name, double amt) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.amt = amt;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public double getAmt() {
+		return amt;
+	}
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", name=" + name + ", amt=" + amt + "]";
+	}
+	
+
+}

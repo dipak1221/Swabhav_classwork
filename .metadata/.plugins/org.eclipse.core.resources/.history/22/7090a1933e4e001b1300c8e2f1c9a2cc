@@ -1,0 +1,6 @@
+package com.techlab.service;
+
+public class DataService {
+	
+	private static DataService bucket;
+}

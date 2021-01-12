@@ -1,0 +1,9 @@
+package com.techlab.FileReader.account;
+
+public class Account {
+	private int id;
+	private String name;
+	private double amt;
+	
+
+}

@@ -1,0 +1,60 @@
+package com.techlab.tictactoe.test;
+
+import java.util.Scanner;
+
+import com.techlab.tictactoe.*;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Board b = new Board();
+		b.printBoard();
+		ResultAnalyser ra = new ResultAnalyser();
+		Scanner sc = new Scanner(System.in);
+		int num, player = 0;
+		System.out.println("X will start first");
+		while (ResultAnalyser.winner == Result.Null) {
+			
+			System.out.println("Enter player " + ((player%2)+1));
+			System.out.print("Player " + ((player%2)+1) + " enter cell no ");
+			num = sc.nextInt();
+			if (num >= 1 && num <= 9) {
+
+				if (b.board[num - 1] == null) {
+
+					b.board[num - 1] = String.valueOf(b.turn);
+
+					ResultAnalyser.winner = ra.check(b.board,b);
+					if (ResultAnalyser.winner == Result.win) {
+						System.out.println(String.valueOf(b.turn) + " is winner ");
+						break;
+					} else if (ResultAnalyser.winner == Result.draw) {
+						System.out.println(" Match has been draw  ");
+						break;
+					}
+					if (b.turn == Mark.X) {
+						b.turn = Mark.O;
+					} else {
+						b.turn = Mark.X;
+					}
+					player++;
+				} else {
+					try {
+						throw new CellIsAlreadyFilled("cell has been already entered"); 
+					}
+					catch(CellIsAlreadyFilled e) {
+						System.err.println(e.getMessage());
+					}	
+				}
+			} else {
+				try {
+					throw new InvalidPosition("Invalid Position entered was "); 
+				}
+				catch(InvalidPosition e) {
+					System.err.println(e.getMessage());
+				}
+			}
+		}
+	}
+
+}

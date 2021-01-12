@@ -1,0 +1,36 @@
+package com.techlab.jdbc;
+import java.util.Scanner;
+import java.sql.*;
+
+public class EmployeeInjectionTest {
+
+	public static void main(String[] args) throws SQLException {
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("Enter empno ");
+		String empno=sc.nextLine();
+		Connection connection =null;
+		try{
+			connection = DriverManager
+					.getConnection("jdbc:mysql://localhost:3306/swabhav_techlab?user=root&password=root");
+			System.out.println("successfull connection");
+			
+			Statement stmt=connection.createStatement();
+			
+			ResultSet res=stmt.executeQuery("select * from emp where empno="+empno);
+			
+			while(res.next()) {
+				System.out.println("Empno = "+res.getInt("empno")+" Empname = "+res.getString("ename"));
+			}
+			
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			connection.close();
+		}
+
+	}
+
+}

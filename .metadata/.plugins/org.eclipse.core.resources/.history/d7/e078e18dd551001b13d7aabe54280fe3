@@ -1,0 +1,16 @@
+package com.techlab.tictactoe;
+
+public enum Indexs {
+	p0(0), p1, p2, p3, p4, p5, p6, p7, p8
+	 private int action; 
+	  
+    public int getAction() 
+    { 
+        return this.action; 
+    } 
+  
+    private Indexs(int action) 
+    { 
+        this.action = action; 
+    } 
+}

@@ -1,0 +1,8 @@
+package com.techlab.tictactoe;
+
+public class CustomException {
+	public static void cell() throws CellIsAlreadyFilled{
+		
+	}
+
+}

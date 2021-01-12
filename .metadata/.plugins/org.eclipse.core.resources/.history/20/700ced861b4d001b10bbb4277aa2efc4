@@ -1,0 +1,31 @@
+package com.techlab.FileReader;
+
+import java.io.*;
+
+public class FileReader1 {
+
+	public static void main(String[] args) {
+		BufferedReader br = null;
+		try {
+			FileReader fr = new FileReader(
+					"C:\\Classwork\\FileReader-FileWriter\\src\\com\\techlab\\FileReader\\student.csv");
+			String i;
+			String deleminator = ",";
+			br = new BufferedReader(fr);
+			try {
+				while ((i = br.readLine()) != null) {
+					String[] s = i.split(deleminator);
+
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

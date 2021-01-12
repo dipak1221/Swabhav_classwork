@@ -1,0 +1,29 @@
+package com.techlab.account;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class AccountTest {
+
+	@Test
+	void testAccount() {
+		int expectedAccno=101;
+		String expectedName ="java";
+		double expectedamt=500.3;
+		
+		Account a=new Account(101,"java",500.3);
+		
+	}
+
+	@Test
+	void testDeposit() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testWithdraw() {
+		fail("Not yet implemented");
+	}
+
+}

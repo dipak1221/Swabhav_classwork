@@ -1,0 +1,90 @@
+package com.techlab.project2.test;
+
+import java.util.Scanner;
+
+import com.techlab.project2.Contact;
+
+public class ContactTest {
+
+	public static void main(String[] args) throws Exception {
+		
+		Scanner sc = new Scanner(System.in);
+		Contact cobj = new Contact();
+		String fname, lname, phoneno, emailid;
+		int num;
+		
+		do {
+	System.out.println("1 -- display\n2 -- add " + "\n3 -- delete \n4 -- exit\nEnter choice ");
+			num = Integer.parseInt(sc.nextLine());
+
+			switch (num) {
+			case 1:
+			{
+				String data = cobj.display();
+				if (data == "") {
+					System.out.println("No data is present");
+				} else
+					System.out.println(data);
+				break;
+			}
+			case 2:
+			{
+				System.out.println("Enter Fname: ");
+				fname = sc.nextLine().trim();
+				System.out.println("Enter Lname: ");
+				lname = sc.nextLine().trim();
+				System.out.println("Enter Phone no: ");
+				phoneno = sc.nextLine().trim();
+				System.out.println("Enter Email id: ");
+				emailid = sc.nextLine().trim();
+
+				if (cobj.add(fname, lname, phoneno, emailid) == 1) {
+					System.out.println("Data inserted successfully");
+				} else
+					System.out.println("Data not inserted");
+				break;
+			}
+			case 3: 
+			{
+				System.out.println("Enter Fname and Lname of contact want to delete:\n ");
+				fname = sc.nextLine();
+				String s[] = fname.split(" ");
+				fname = s[0];
+				lname = s[1];
+				int row = cobj.delete(fname, lname);
+				if (row >= 1) {
+					System.out.println("" + row + " rows has been deleted successfully");
+				} else {
+					System.out.println("No rows has been deleted");
+				}
+				break;
+			}
+			case 4:
+			{
+				System.out.println("update phone no:\n");
+				System.out.println("Enter Fname and Lname of that person: ");
+				fname = sc.nextLine();
+				String s[] = fname.split(" ");
+				fname = s[0];
+				lname = s[1];
+				int row = cobj.show(fname, lname);
+				if (row >= 1) {
+					System.out.println("" + row + " rows has been deleted successfully");
+				} else {
+					System.out.println("No rows has been deleted");
+				}
+				break;
+				
+			}
+			default:
+				break;
+
+			}
+
+		} while (num != 5);
+
+		cobj.closeConnection();
+
+	}
+
+}

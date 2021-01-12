@@ -1,0 +1,10 @@
+package com.techlab.FileReader;
+
+public class FileWriter {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

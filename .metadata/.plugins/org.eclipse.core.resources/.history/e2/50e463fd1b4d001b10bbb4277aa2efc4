@@ -1,0 +1,38 @@
+package com.techlab.FileReader;
+
+import java.io.*;
+
+public class FileReader1 {
+
+	public static void main(String[] args) {
+		BufferedReader br = null;
+		try {
+			FileReader fr = new FileReader(
+					"C:\\Classwork\\FileReader-FileWriter\\src\\com\\techlab\\FileReader\\student.csv");
+			String i;
+			String deleminator = ",";
+			br = new BufferedReader(fr);
+			try {
+				FileWriter fw=new FileWriter("C:\\Classwork\\FileReader-FileWriter\\src\\com\\techlab\\FileReader\\Sample.txt");
+				
+				while ((i = br.readLine()) != null) {
+					String[] s = i.split(deleminator);
+					String line="Student name  is "+s[0]+"and roll no is "+s[1]+" and marks it this "+s[2];
+					System.out.println(line);
+					fw.write(line+"\n");
+
+				}
+				fr.close();
+				fw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

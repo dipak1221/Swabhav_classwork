@@ -1,0 +1,29 @@
+package com.techlab.FileReader;
+
+import java.io.*;
+
+import com.techlab.FileReader.account.Account;
+
+public class FileReader1 {
+
+	public static void main(String[] args) {
+		
+		Account a=new Account(12,"abc",34);
+		printInfo(a);
+		storingIntoFile(a);
+	}
+
+	private static void storingIntoFile(Account a) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void printInfo(Account a) {
+	System.out.println(a.toString());	
+	}
+	
+	
+	
+	
+
+}
